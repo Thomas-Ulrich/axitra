@@ -71,7 +71,7 @@ tar:
 ######################################
 
 python: parameter.o dimension1.o fft2cd.o fsource.o dll2km.o axitra2py
-	f2py -c -m convmPy  -DF2PY_REPORT_ON_ARRAY_COPY=1 $(F2PY) convmPy.F90 fsource.f90 parameter.f90 fft2cd.o dll2km.o 
+	f2py -c -m convmPy  -DF2PY_REPORT_ON_ARRAY_COPY=1 $(F2PY) convmPy.F90 fsource.f90 parameter.f90 fft2cd.f90 dll2km.f90
 
 axitra2py: dimension1.o dimension2.o parameter.o allocateArray.o initdata.o dll2km.o axitra2py.o 
 	$(FC) $(FFLAGS) -o $@ axitra2py.o dimension1.o dimension2.o allocateArray.o initdata.o dll2km.o parameter.o
