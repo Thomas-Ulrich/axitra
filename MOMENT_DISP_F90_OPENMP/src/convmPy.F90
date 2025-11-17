@@ -295,11 +295,11 @@ endif
 !++++++++++++
 !$OMP PARALLEL DEFAULT(FIRSTPRIVATE) &
 !$OMP SHARED(ux,uy,uz,nr,mm,rindex,sx,sy,sz,nt,nfreq,tl,aw)
-#if defined(_OPENMP)
-   if (omp_get_thread_num()==1) then
-       write(0,*) 'running openMp on ',omp_get_num_threads(),' threads'
-   endif
-#endif
+!#if defined(_OPENMP)
+!   if (omp_get_thread_num()==1) then
+!       write(0,*) 'running openMp on ',omp_get_num_threads(),' threads'
+!   endif
+!#endif
 
 !$OMP DO ORDERED,SCHEDULE(DYNAMIC)
    do ir = 1, nr
@@ -359,8 +359,8 @@ subroutine cmoment(mu, strike, dip, rake, disp, surf, a)
       xmoment = mu*disp*surf
    endif
 !        xmoment=1.e30
-   write (6, *) "Moment (Nm):", xmoment
-   write (6, *) "Moment (Dyne.cm):", xmoment*1.e7
+!   write (6, *) "Moment (Nm):", xmoment
+!   write (6, *) "Moment (Dyne.cm):", xmoment*1.e7
    strike = strike*pi/180.
    dip = dip*pi/180.
    rake = rake*pi/180.
